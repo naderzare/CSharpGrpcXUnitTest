@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package game;
+
+// The greeting service definition.
+service Game {
+  // Sends a greeting
+  rpc AddGame (AddRequest) returns (AddResponse);
+  rpc GetGames (GetGamesRequest) returns (GetGamesResponse);
+  rpc AddUser (AddUserRequest) returns (AddUserResponse);
+  rpc GetUsersCount (GetUsersCountRequest) returns (GetUsersCountResponse);
+  rpc GetUsers (GetUsersRequest) returns (GetUsersResponse);
+}
+
+message GetUsersRequest{
+}
+
+message GetUsersResponse{
+	string users = 1;
+}
+
+message GetUsersCountRequest{
+}
+
+message GetUsersCountResponse{
+	int32 count = 1;
+}
+
+message AddUserRequest{
+	string name = 1;
+}
+
+message AddUserResponse{
+	bool isSuccessful = 1;
+}
+// The request message containing the user's name.
+message AddRequest {
+}
+
+message AddResponse {
+	bool isSuccessful = 1;
+}
+
+message GetGamesRequest {
+}
+
+message GetGamesResponse {
+	string games = 1;
+}
